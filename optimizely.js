@@ -15,7 +15,7 @@
 const optimizelySDK = require('@optimizely/optimizely-sdk');
 //import { enums } from '@optimizely/optimizely-sdk';
 const optimizelyClientInstance = optimizelySDK.createInstance({
-  sdkKey: 'PnsTgkYA2fJUhHZRnZ9S5f'
+  sdkKey: 'PnsTgkYA2fJUhHZRnZ9S5f' //TODO: change to <SDK_KEY> when publish
 });
 
 

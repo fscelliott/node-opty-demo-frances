@@ -2,11 +2,11 @@
 /*  To run:
 1. Create an empty project directory. For example, run in the terminal: touch opty-demo
 2. Create an empty package.json. Run: npm init. Leave all the prompts blank
-3. create optimizely.js: run: touch optimizely.js. 
-4. Copy the following code into optimizely.js
-5. run: npm install --save @optimizely/optimizely-sdk
-6. run: node optimizely.js. Answer the prompt, then press Ctl+C twice to exit
-7. repeat step 5 a few times, then head over to the Optimizely app to see experiment results
+3. Create optimizely.js: run: touch optimizely.js. 
+4. Copy this code sample into optimizely.js and replace <Your_SDK_Key>
+5. Run: npm install --save @optimizely/optimizely-sdk
+6. Run: node optimizely.js. Answer the prompt to mock experiment results, then press Ctl+C twice to exit
+7. Repeat step 6 a few times, then head over to the Optimizely app to see experiment results
  */
 
 
@@ -69,7 +69,7 @@ optimizelyClientInstance.onReady().then(() => {
     const discountAmount = optimizelyClientInstance.getFeatureVariable('discount', 'amount', userId);
     console.log(userId + " got a discount of " + discountAmount);
     readline.question('Pretend they made a purchase? y/n', (answer) => {
-      if (answer = 'y') {
+      if (answer == 'y') {
         optimizelyClientInstance.track('purchase', userId);
         console.log("Optimizely recorded a purchase in experiment results")
       }
@@ -82,7 +82,7 @@ optimizelyClientInstance.onReady().then(() => {
   } else {
     console.log(userId + " didn't get a discount (flag disabled)")
     readline.question('Pretend that they made a purchase? y/n', (answer) => {
-      if (answer = 'y') {
+      if (answer == 'y') {
         optimizelyClientInstance.track('purchase', userId);
         console.log("Optimizely recorded a purchase in experiment results")
       }

@@ -1,19 +1,16 @@
 
 /*  To run:
 1. create an empty project directory, e.g run: touch node-demo
-2. run: npm init and leave all the prompts blank
-3. create optimizely.js: run: touch optimizely.js and copy the following contents into it
-4. run: npm install --save @optimizely/optimizely-sdk
+2. run: npm init to create a package.json, and leave all the prompts blank
+3. run: npm install --save @optimizely/optimizely-sdk
+4. create optimizely.js: run: touch optimizely.js and copy the following contents into it
 5. run: node optimizely.js and answer the prompts, then press Ctl+C twice to exit
 6. repeat step 5 a few times, then head over to the Optimizely app to see experiment results
  */
 
- //QUESTION FOR ASA/KODY: i've never tried to just run node completely barebones (without say starting from Express)
- //so I'm a little lost on what I need to get the import { enums} statement to work without complaining
- // about package/module type stuff
 
 const optimizelySDK = require('@optimizely/optimizely-sdk');
-//import { enums } from '@optimizely/optimizely-sdk';
+const enums = optimizelySDK.enums;
 const optimizelyClientInstance = optimizelySDK.createInstance({
   sdkKey: 'PnsTgkYA2fJUhHZRnZ9S5f' //TODO: change to <SDK_KEY> when publish
 });
@@ -27,9 +24,7 @@ const readline = require('readline').createInterface({
 
 
 optimizelyClientInstance.onReady().then(() => {
-  //optimizelyClientInstance has downloaded your Optimizely configuration
-  //and is ready to use
-  console.log('client ready');
+  console.log('optimizelyClientInstance has downloaded your Optimizely configuration and is ready to use ready');
 
   // OPTIONAL: Add a notification listener so you can later integrate with third - party analytics platforms
   /*   const listenerId = optimizelyClientInstance.notificationCenter.addNotificationListener(enums.NOTIFICATION_TYPES.DECISION,
